@@ -1,0 +1,9 @@
+# Dependencies
+node_modules/
+
+# Miscs
+.idea
+.DS_Store
+
+# Example data for testing
+*.txt

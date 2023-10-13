@@ -1,0 +1,7 @@
+{
+  "name": "voltaire-resolver-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ]
+}
