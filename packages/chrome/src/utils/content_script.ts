@@ -22,8 +22,8 @@ document.addEventListener('__GOT_PROXIED_RESPONSE_VOLTAIRE', async function (eve
 setInterval(() => {
   const sentence_html = document.querySelector(".sentence") as HTMLDivElement;
   if (!sentence_html) {
+    console.info("[voltaire-resolver]: sentence not found, clearing the store.");
     chrome.storage.local.set({ VOLTAIRE_CURRENT_SENTENCE: "" });
-    console.warn("[voltaire-resolver]: sentence not found.");
     return;
   };
 
