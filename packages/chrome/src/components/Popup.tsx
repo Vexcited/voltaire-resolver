@@ -1,5 +1,36 @@
-import { type Component, onMount, createSignal, Show } from "solid-js";
+import { type Component, onMount, createSignal, createEffect, Show } from "solid-js";
 import VoltaireResolver from "voltaire-resolver";
+
+const CorrectSentence: Component<{ sentence: string }> = (props) => {
+  createEffect(() => {
+    const parts: string[] = [];
+
+    let currentIndex = 0, currentPart = "";
+    while (currentIndex < props.sentence.length) {
+      // whenever we find <B> we start a new part
+      if (props.sentence[currentIndex] === "<" && props.sentence[currentIndex + 1] === "B" && props.sentence[currentIndex + 2] === ">") {
+        parts.push(currentPart);
+        currentPart = "";
+        currentIndex += 3;
+      }
+      else if (props.sentence[currentIndex] === "<" && props.sentence[currentIndex + 1] === "/" && props.sentence[currentIndex + 2] === "B" && props.sentence[currentIndex + 3] === ">") {
+        parts.push(currentPart);
+        currentPart = "";
+        currentIndex += 4;
+      }
+      else {
+        currentIndex++;
+        currentPart += props.sentence[currentIndex];
+      }
+    }
+  });
+
+  return (
+    <div>
+      <p>{props.sentence}</p>
+    </div>
+  );
+}
 
 const Popup: Component = () => {
   const [correct, setCorrect] = createSignal<string | null>(null);
@@ -22,7 +53,7 @@ const Popup: Component = () => {
 
   return (
     <Show when={correct()} fallback={<div>No data</div>}>
-      <p>{correct()}</p>
+      <CorrectSentence sentence={correct()!} />
     </Show>
   );
 };
