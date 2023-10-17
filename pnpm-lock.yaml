@@ -16,6 +16,9 @@ importers:
       voltaire-resolver:
         specifier: workspace:*
         version: link:../resolver
+      webextension-polyfill:
+        specifier: ^0.10.0
+        version: 0.10.0
     devDependencies:
       '@crxjs/vite-plugin':
         specifier: 2.0.0-beta.7
@@ -26,6 +29,9 @@ importers:
       '@types/node':
         specifier: ^20.8.5
         version: 20.8.5
+      '@types/webextension-polyfill':
+        specifier: ^0.10.4
+        version: 0.10.4
       babel-preset-solid:
         specifier: ^1.8.0
         version: 1.8.0(@babel/core@7.23.2)
@@ -735,6 +741,10 @@ packages:
     resolution: {integrity: sha512-SPlobFgbidfIeOYlzXiEjSYeIJiOCthv+9tSQVpvk4PAdIIc+2SmjNVzWXk9t0Y7dl73Zdf+OgXKHX9XtkqUpw==}
     dependencies:
       undici-types: 5.25.3
+    dev: true
+
+  /@types/webextension-polyfill@0.10.4:
+    resolution: {integrity: sha512-pvEIqAZEbJRzaqTaWq3xlUoMWa3+euZHHz+VZHCzHWW+jOf8qLOq9wXy38U+WiPG3108SJC/wNc1X6vPC5TcjQ==}
     dev: true
 
   /@webcomponents/custom-elements@1.6.0:
@@ -1882,6 +1892,10 @@ packages:
     dependencies:
       vite: 4.4.11(@types/node@20.8.5)
     dev: true
+
+  /webextension-polyfill@0.10.0:
+    resolution: {integrity: sha512-c5s35LgVa5tFaHhrZDnr3FpQpjj1BB+RXhLTYUxGqBVN460HkbM8TBtEqdXWbpTKfzwCcjAZVF7zXCYSKtcp9g==}
+    dev: false
 
   /webidl-conversions@4.0.2:
     resolution: {integrity: sha512-YQ+BmxuTgd6UXZW3+ICGfyqRyHXVlD5GtQr5+qjiNW7bF0cqrzX500HVXPBOvgXb5YnzDd+h0zqyv61KUD7+Sg==}

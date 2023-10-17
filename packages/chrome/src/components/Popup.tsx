@@ -1,5 +1,6 @@
 import { type Component, onMount, createSignal, createEffect, Show } from "solid-js";
 import VoltaireResolver from "voltaire-resolver";
+import browser from "webextension-polyfill";
 
 const CorrectSentence: Component<{ sentence: string }> = (props) => {
   createEffect(() => {
@@ -36,11 +37,11 @@ const Popup: Component = () => {
   const [correct, setCorrect] = createSignal<string | null>(null);
 
   onMount(async () => {
-    const file_data = await chrome.storage.local.get(["VOLTAIRE_SENTENCES"]) as {
+    const file_data = await browser.storage.local.get("VOLTAIRE_SENTENCES") as {
       VOLTAIRE_SENTENCES: string;
     }
 
-    const { VOLTAIRE_CURRENT_SENTENCE: current_sentence } = await chrome.storage.local.get(["VOLTAIRE_CURRENT_SENTENCE"]) as {
+    const { VOLTAIRE_CURRENT_SENTENCE: current_sentence } = await browser.storage.local.get("VOLTAIRE_CURRENT_SENTENCE") as {
       VOLTAIRE_CURRENT_SENTENCE: string;
     };
 
