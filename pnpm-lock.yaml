@@ -8,7 +8,7 @@ importers:
 
   .: {}
 
-  packages/chrome:
+  packages/extension:
     dependencies:
       solid-js:
         specifier: ^1.8.0

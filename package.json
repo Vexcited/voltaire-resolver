@@ -7,6 +7,6 @@
 
   "scripts": {
     "build:resolver": "pnpm --filter voltaire-resolver run build",
-    "build:extension": "pnpm --filter voltaire-resolver-chrome run build"
+    "build:extension": "pnpm --filter voltaire-resolver-extension run build"
   }
 }

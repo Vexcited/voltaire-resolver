@@ -1,8 +1,8 @@
 {
-  "name": "voltaire-resolver-chrome",
+  "name": "voltaire-resolver-extension",
   "displayName": "Projet Voltaire - Resolver",
   "version": "0.1.0",
-  "description": "Chrome Extension to resolve sentences from the Projet Voltaire website",
+  "description": "Resolve sentences from the Projet Voltaire website.",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -10,7 +10,8 @@
   },
   "scripts": {
     "dev": "vite build -w",
-    "build": "vite build && node ./scripts/remove-extra-import.js"
+    "build": "vite build && node ./scripts/remove-extra-import.js",
+    "post:make-mv2": "node ./scripts/make-manifest-v2.js"
   },
   "type": "module",
   "dependencies": {

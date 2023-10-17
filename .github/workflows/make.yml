@@ -22,11 +22,20 @@ jobs:
       - name: Build resolver
         run: pnpm run build:resolver
 
-      - name: Build extension
+      - name: Build extension MV3
         run: pnpm run build:extension
       
-      - name: Upload extension
+      - name: Upload extension MV3
         uses: actions/upload-artifact@v3
         with:
-          name: voltaire-resolver-extension
-          path: packages/chrome/dist/
+          name: voltaire-resolver-extension-mv3
+          path: packages/extension/dist/
+
+      - name: Build extension MV2
+        run: pnpm --filter voltaire-resolver-extension run post:make-mv2
+      
+      - name: Upload extension MV2
+        uses: actions/upload-artifact@v3
+        with:
+          name: voltaire-resolver-extension-mv2
+          path: packages/extension/dist/
